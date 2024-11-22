@@ -31,15 +31,16 @@
       <java.version>21</java.version>
    </properties>
    <dependencies>
+
+		
    	<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 	<dependency>
 	    <groupId>com.google.code.gson</groupId>
 	    <artifactId>gson</artifactId>
 	    <version>2.10.1</version>
 	</dependency>
-   
-      <dependency>
-          <groupId>org.apache.tomcat.embed</groupId>
+    <dependency>
+    	<groupId>org.apache.tomcat.embed</groupId>
           <artifactId>tomcat-embed-jasper</artifactId>
     </dependency>
     <dependency>
@@ -102,6 +103,11 @@
          <version>3.0.3</version>
          <scope>test</scope>
       </dependency>
+      <!-- Thymeleaf -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
    </dependencies>
 
    <build>
