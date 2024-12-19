@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.mapper.BoardMapper">
+
+	<select id="list" resultType="com.smhrd.entity.Board">
+		SELECT * FROM Board
+	</select>
+
+	<insert id="write" parameterType="com.smhrd.entity.Board">
+		INSERT INTO BOARD(title, writer, content, img)
+		VALUES(
+			#{title},
+			#{writer},
+			#{content},
+			#{img}
+		)
+	
+	</insert>
+
+	<select id="view" resultType="com.smhrd.entity.Board">
+		SELECT * FROM BOARD WHERE IDX=#{idx}
+	</select>
+
+<!-- 	<delete id="">
+		DELETE FROM BOARD WHERE IDX=#{idx}
+	</delete> 다른 방법으로 해보자!-->
+
+	<select id="search" resultType="com.smhrd.entity.Board">
+		select * from Board where title like #{text} 
+		
+	</select>
+
+
+<!-- #{} 알아서 '' 따옴표를 붙임 -->
+<!-- ${} 를사용해서 '' 따옴표없이 사용가능함. -->
+
+	<!-- 차트그리기
+		작성자 별, 조회수가 가낭 높은 값만을 비교해서 상위 5명을 조회
+	 -->
+	
+	<select id="chart" resultType="com.smhrd.entity.Board">
+		select writer, Max(count) as count
+		from Board
+		group by writer
+		order by count desc
+		limit 5
+	</select>
+	
+	
+
+
+
+
+
+</mapper>
