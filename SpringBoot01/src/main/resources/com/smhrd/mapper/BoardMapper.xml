@@ -7,7 +7,7 @@
 	</select>
 
 	<insert id="write" parameterType="com.smhrd.entity.Board">
-		INSERT INTO BOARD(title, writer, content, img)
+		INSERT INTO Board(title, writer, content, img)
 		VALUES(
 			#{title},
 			#{writer},
@@ -18,7 +18,7 @@
 	</insert>
 
 	<select id="view" resultType="com.smhrd.entity.Board">
-		SELECT * FROM BOARD WHERE IDX=#{idx}
+		SELECT * FROM Board WHERE IDX=#{idx}
 	</select>
 
 <!-- 	<delete id="">
